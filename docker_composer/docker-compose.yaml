@@ -1,0 +1,37 @@
+# version: '3'
+# services:
+#   mongodb:
+#     image: mongo
+#     ports:
+#       - 27017:27017
+#     environment:
+#       - MONGO_INITDB_ROOT_USERNAME=admin
+#       - MONGO_INITDB_ROOT_PASSWORD=password
+#     volumes:
+#       - mongo-data:/data/db
+#   mongo-express:
+#     image: mongo-express
+#     restart: always # fixes MongoNetworkError when mongodb is not ready when mongo-express starts
+#     ports:
+#       - 8080:8081
+#     environment:
+#       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+#       - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+#       - ME_CONFIG_MONGODB_SERVER=mongodb
+# volumes:
+#   mongo-data:
+#     driver: local
+
+version: '3'
+services:
+  nodejs-1:
+    image: nodejs-sample:0.1
+    ports:
+      - 8080:8080
+#   nodejs-2:
+#     image: nodejs-sample:0.1
+#     ports:
+#       - 8081:8080
+    # deploy:
+    #   mode: replicated
+    #   replicas: 2
