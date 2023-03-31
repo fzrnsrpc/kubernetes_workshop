@@ -1,0 +1,20 @@
+# apiVersion:         networking.k8s.io/v1
+# kind:               Ingress
+# metadata:
+#   name:             mario-ingress
+# spec:
+#   defaultBackend:
+#     service:
+#           name:     mario-service-loadbalancer
+#           port:
+#             number: 8080
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mario-ingress
+spec:
+  defaultBackend:
+    service:
+          name:     mario-service-cluster
+          port:
+            number: 8080
