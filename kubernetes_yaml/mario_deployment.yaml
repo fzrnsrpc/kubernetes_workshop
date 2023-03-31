@@ -1,0 +1,21 @@
+apiVersion:       apps/v1
+kind:             Deployment
+metadata:
+  name:           mario-deployment
+  labels:
+    app:          mario
+spec:
+  replicas:       3
+  selector:
+    matchLabels:
+      app:        mario
+  template:
+    metadata:
+      labels:
+        app:      mario
+    spec:
+      containers:
+      - name:     mario
+        image:    bharathshetty4/supermario
+        ports:
+        - containerPort: 8080
