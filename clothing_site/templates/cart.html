@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock %}
+{% block content %}
+<h1>Your Cart</h1>
+{% if cart_items %}
+<table class="table">
+  <thead><tr><th>Item</th><th>Qty</th><th>Price</th></tr></thead>
+  <tbody>
+  {% for item, qty in cart_items %}
+  <tr>
+    <td>{{ item.name }}</td>
+    <td>{{ qty }}</td>
+    <td>${{ '%.2f'|format(item.price * qty) }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p><strong>Total:</strong> ${{ '%.2f'|format(total) }}</p>
+<a href="/checkout" class="btn btn-success">Checkout</a>
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}
+{% endblock %}
